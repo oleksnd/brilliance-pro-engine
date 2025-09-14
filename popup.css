@@ -1,0 +1,345 @@
+/* popup.css (v2.3 - Final Polish) */
+
+/* === ОБЩИЕ СТИЛИ === */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #282828;
+    color: #E0E0E0;
+    width: 400px;
+    margin: 0;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* === ЗАГОЛОВОК === */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border-bottom: 1px solid #444; */ /* Линия убрана по запросу */
+    padding-bottom: 8px;
+}
+
+.title-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo {
+    width: 24px;
+    height: 24px;
+}
+
+h1 {
+    font-size: 20px;
+    margin: 0;
+    color: #FFFFFF;
+}
+
+.version {
+    font-size: 12px;
+    color: #888;
+}
+
+/* === ПЕРЕКЛЮЧАТЕЛЬ РЕЖИМОВ === */
+.segmented-control {
+    display: flex;
+    width: 100%;
+    background-color: #3A3A3A;
+    border-radius: 8px;
+    padding: 4px;
+    box-sizing: border-box;
+}
+
+.segmented-control button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    padding: 8px;
+    border: none;
+    background-color: transparent;
+    color: #B0B0B0;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.segmented-control button.active {
+    background-color: #4F545C;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+.beta-tag {
+    background-color: #8a6d3b;
+    color: #fff;
+    font-size: 9px;
+    font-weight: 600;
+    padding: 2px 5px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.segmented-control button:not(.active) .beta-tag {
+    opacity: 0.7;
+}
+
+/* === ГРУППЫ ФОРМ И ЗАГОЛОВКИ === */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.label-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #B0B0B0;
+}
+
+/* === КНОПКИ-КАТЕГОРИИ === */
+#category-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.category-btn {
+    background-color: #3A3A3A;
+    border: 1px solid #555;
+    color: #E0E0E0;
+    padding: 8px 12px;
+    border-radius: 16px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.category-btn:hover {
+    background-color: #4A4A4A;
+    border-color: #777;
+}
+
+.category-btn.active {
+    background-color: #4F545C;
+    border-color: #6A7079;
+    color: #FFFFFF;
+    font-weight: 600;
+}
+
+/* === СЕЛЕКТЫ И ТЕКСТОВОЕ ПОЛЕ === */
+select,
+textarea {
+    background-color: #333;
+    color: #E0E0E0;
+    border: 1px solid #555;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #6A7079;
+    box-shadow: 0 0 0 2px rgba(106, 112, 121, 0.3);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* === КНОПКИ РУЧНОГО РЕЖИМА ("CLEAR" И "GET AI PROMPT") === */
+.manual-actions-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: -8px;
+}
+
+.ai-button {
+    background-color: #3A3A3A;
+    border: 1px solid #555;
+    color: #E0E0E0;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.ai-button:hover {
+    background-color: #4A4A4A;
+    border-color: #777;
+}
+
+.clear-button {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: color 0.2s, background-color 0.2s;
+}
+
+.clear-button:hover {
+    color: #E0E0E0;
+    background-color: #4F545C;
+}
+
+/* === ФУТЕР И ГЛАВНАЯ КНОПКА (ОБНОВЛЕНО) === */
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Отступ между кнопкой и текстом */
+    width: 100%;
+}
+
+.download-btn {
+    background-color: #4F545C;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s;
+}
+
+.download-btn:hover {
+    background-color: #6A7079;
+}
+
+/* НОВЫЙ СТИЛЬ: Описание под кнопкой */
+.footer-note {
+    font-size: 12px;
+    color: #888;
+    text-align: center;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.footer-note strong {
+    color: #A0A0A0;
+    font-weight: 500;
+}
+
+
+/* === СТИЛИ ДЛЯ МОДАЛЬНОГО ОКНА AI ПРОМПТА === */
+body.modal-open {
+    height: 550px;
+    transition: height 0.2s ease-in-out;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #282828;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #444;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #888;
+    cursor: pointer;
+}
+
+.modal-description {
+    margin: 0;
+    color: #B0B0B0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.prompt-text {
+    background-color: #1E1E1E;
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 13px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    max-height: 300px;
+    overflow-y: auto;
+    color: #D4D4D4;
+}
+
+.copy-button {
+    background-color: #4F545C;
+    color: #FFF;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.copy-button:hover {
+    background-color: #6A6F77;
+}
+/* === КОНЕЦ ФАЙЛА === */

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Brilliance Pro</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 1. Заголовок -->
+        <header class="header">
+            <div class="title-group">
+                <img src="icons/icon48.png" alt="Brilliance Pro Logo" class="logo">
+                <h1>Brilliance Pro</h1>
+            </div>
+            <span class="version">v4.0</span>
+        </header>
+
+        <!-- 2. Переключатель режимов -->
+        <div class="segmented-control">
+            <button id="mode-manual-btn" class="active">Manual</button>
+            <button id="mode-presets-btn">
+                Generator
+                <span class="beta-tag">Beta</span>
+            </button>
+        </div>
+
+        <!-- ====================================================== -->
+        <!-- === НОВЫЙ КОНТЕЙНЕР ГЕНЕРАТОРА === -->
+        <!-- ====================================================== -->
+        <div id="presets-mode-container" style="display: none;">
+            
+            <!-- Шаг 1: Выбор инструмента (теперь <select>) -->
+            <div class="form-group">
+                <label for="instrument-select">1. Instrument:</label>
+                <select id="instrument-select"></select>
+            </div>
+
+            <!-- Шаг 2: Переключатель Жанр/Настроение -->
+            <div class="form-group" id="style-type-group" style="display: none;">
+                <label>2. Style Type:</label>
+                <div class="segmented-control" id="style-type-toggle">
+                    <button data-type="genre" class="active">Genre</button>
+                    <button data-type="mood">Mood</button>
+                </div>
+            </div>
+
+            <!-- Шаг 3.1: Выбор Жанра -->
+            <div class="form-group" id="genre-group" style="display: none;">
+                <label for="genre-select">3. Genre:</label>
+                <select id="genre-select"></select>
+            </div>
+            
+            <!-- Шаг 3.2: Выбор Настроения -->
+            <div class="form-group" id="mood-group" style="display: none;">
+                <label for="mood-select">3. Mood:</label>
+                <select id="mood-select"></select>
+            </div>
+
+            <!-- Шаг 4: Выбор Гаммы -->
+            <div class="form-group" id="scale-group" style="display: none;">
+                <label for="scale-select">4. Scale (Flavor):</label>
+                <select id="scale-select"></select>
+            </div>
+
+            <!-- Шаг 5: Переключатель Сложности -->
+            <div class="form-group" id="complexity-group" style="display: none;">
+                <label>5. Complexity:</label>
+                <div class="segmented-control" id="complexity-toggle">
+                    <button data-complexity="simple" class="active">Simple</button>
+                    <button data-complexity="complex">Complex</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Основное текстовое поле для паттерна -->
+        <div class="form-group">
+            <div class="label-container">
+                <label for="command-input">Pattern:</label>
+                <button id="clear-btn" class="clear-button">Clear</button>
+            </div>
+            <textarea id="command-input" rows="5" placeholder="Select options in Generator or type manually..."></textarea>
+        </div>
+        
+        <!-- НОВАЯ КНОПКА ГЕНЕРАЦИИ ИДЕИ (появляется в режиме Generator) -->
+        <div id="new-idea-container" style="display: none;">
+             <button id="new-idea-btn" class="download-btn">✨ New Idea</button>
+        </div>
+
+        <!-- Футер с кнопкой Generate MIDI (теперь видна всегда) -->
+        <footer class="footer">
+            <button id="generate-btn" class="download-btn">Generate MIDI</button>
+             <p class="footer-note">
+                Perfect for <strong>BandLab</strong>, but works with any DAW.
+            </p>
+        </footer>
+
+        <!-- Модальное окно AI-промпта (остается для ручного режима) -->
+        <div id="ai-prompt-container">
+            <div id="ai-prompt-modal" class="modal-overlay" style="display: none;">
+                <!-- ...содержимое модального окна без изменений... -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Подключаем финальный скрипт -->
+    <script src="popup.js" type="module"></script>
+</body>
+</html>
